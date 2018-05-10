@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>changeBackGround</title>
+</head>
+<style type="text/css">
+	body{
+		padding: 0px;
+		margin: 0px;
+	}
+	img{
+		position: fixed;
+		top: 0px;
+		left: 50%;
+		transform: translate(-50%,0);
+		width: auto;
+		height: auto;		
+		min-width: 100%;
+		z-index: 0;
+	}
+	div.sidebar{
+		position: absolute;
+		bottom: 100px;
+		width: 100%;
+		z-index: 50;
+	}
+	ul{
+		text-align: center;
+		vertical-align: top;
+	}
+	li{
+		display: inline-block;
+		vertical-align: top;
+	}
+	a{
+		display: block;		
+		width: 170px;
+		height: 100px;		
+		border-radius: 5px;
+		padding-top: 70px;
+		text-decoration:none;
+		font-family: "Comic Sans MS", cursive, sans-serif;
+		font-size: 19px;
+		color: #fff;
+		text-shadow: -3px -3px 5px #000;
+		position: relative;
+		top:80px;
+	}
+
+	/*为每个li设置不同的背景色*/
+	li:nth-of-type(1)>a{
+		background-color: #02646e;
+	}
+	li:nth-of-type(2)>a{
+		background-color: #ec1137;
+	}
+	li:nth-of-type(3)>a{
+		background-color: #66b373;
+	}
+	li:nth-of-type(4)>a{
+		background-color: #e66649;
+	}
+	li:nth-of-type(5)>a{
+		background-color: #e71060;
+	}
+	/*制作圆形头像效果*/
+	a:after{
+		content: "";
+		position: absolute;
+		left: 50%;
+		top:0px;
+		transform: translate(-50%,-50%);
+		width: 120px;
+		height: 120px;
+		border: 5px solid #fff;
+		border-radius: 50%;
+
+	}
+	/*灰色蒙版效果*/
+	a:before{
+		content: "";
+		position: absolute;
+		left: 50%;
+		top:0px;
+		transform: translate(-50%,-50%);
+		width: 120px;
+		height: 120px;
+		border-radius: 50%;
+		background-color: rgba(0, 0, 0, 0.3);
+		z-index: 2;
+	}
+	a:hover:before{
+		background-color: rgba(0, 0, 0, 0);
+	}
+	/*设置头像缩略图*/
+	li:nth-of-type(1)>a:after{
+		background-image: url(http://img3.a0bi.com/upload/ttq/20160922/1474539799836.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	li:nth-of-type(2)>a:after{
+		background-image: url(http://pic1.win4000.com/wallpaper/d/59000c5f5c200.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	li:nth-of-type(3)>a:after{
+		background-image: url(http://old.bz55.com/uploads/allimg/130720/1-130H0105424-50.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	li:nth-of-type(4)>a:after{
+		background-image: url(http://old.bz55.com/uploads/allimg/130725/1-130H5105020.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	li:nth-of-type(5)>a:after{
+		background-image: url(http://img4.duitang.com/uploads/item/201406/20/20140620200120_twz3j.jpeg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+	/*定义动画*/
+	@keyframes animation-img1{
+		from{left:-50%;}
+		to{left:50%;}
+	}
+	@keyframes animation-img2{
+		from{transform: translate(-50%,-100%);}
+		to{transform: translate(-50%,0);}
+	}
+	@keyframes animation-img3{
+		from{transform: translate(-50%,0) scale(0.1);}
+		to{transform: translate(-50%,0);}
+	}
+	@keyframes animation-img4{
+		from{transform: translate(-50%,0) scale(2);}
+		to{transform: translate(-50%,0);}
+	}
+	@keyframes animation-img5{  
+		from{transform: translate(-50%,0) rotate(180deg);}
+		to{transform: translate(-50%,0);}
+	}
+	/*背景图片切换效果*/
+	#img1:target{
+		z-index: 5;
+		animation-name: animation-img1;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+	#img2:target{
+		z-index: 5;
+		animation-name: animation-img2;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+	#img3:target{
+		z-index: 5;
+		animation-name: animation-img3;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+	#img4:target{
+		z-index: 5;
+		animation-name: animation-img4;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+	#img5:target{
+		z-index: 5;
+		animation-name: animation-img5;
+		animation-duration: 1s;
+		animation-timing-function: ease;
+	}
+</style>
+<body>
+	<div class="sidebar">
+		<ul>
+			<li><a href="#img1">Hipster Fashion Haircut </a></li>
+			<li><a href="#img2">Cloud Computing Services &amp; Consulting</a></li>
+			<li><a href="#img3">My haire is sooo fantastic!</a></li>
+			<li><a href="#img4">Eat healthy &amp; excersice!</a></li>
+			<li><a href="#img5">Lips so kissable I could die ...</a></li>
+		</ul>
+	</div>
+	<img id="img1" src="http://img3.a0bi.com/upload/ttq/20160922/1474539799836.jpg">
+	<img id="img2" src="http://pic1.win4000.com/wallpaper/d/59000c5f5c200.jpg">
+	<img id="img3" src="http://old.bz55.com/uploads/allimg/130720/1-130H0105424-50.jpg">
+	<img id="img4" src="http://old.bz55.com/uploads/allimg/130725/1-130H5105020.jpg">
+	<img id="img5" src="http://img4.duitang.com/uploads/item/201406/20/20140620200120_twz3j.jpeg">
+</body>
+</html>
